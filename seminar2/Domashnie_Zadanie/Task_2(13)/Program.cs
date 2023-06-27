@@ -5,6 +5,13 @@
 
 Console.WriteLine("Введите число:");
 int a = int.Parse(Console.ReadLine());
-int res=a/10;
-res=res%10;
-Console.WriteLine($"Вторая цифра числа {a} = {res}");
+if(a<0){ a=a*(-1);} // проверка числа на отрицательность.
+int res=-1;
+while(a>99){
+    res=a%10;
+    a=a/10;
+    }
+if(res==-1){ Console.WriteLine($"В числе {a} третьей цифры нет.");  }
+else{ Console.WriteLine(res); }
+
+// Готово!
