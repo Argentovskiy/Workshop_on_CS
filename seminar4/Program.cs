@@ -10,9 +10,7 @@ void palindrome (int n){
     string s=n.ToString();
     int i=0,lin=s.Length;
         while(i<(lin/2)){
-        if(s[i] == s[lin-i-1]){
-            i++;
-        }
+        if(s[i] == s[lin-i-1]){ i++; }
         else{
             Console.WriteLine(" нет ");
             break;
@@ -22,19 +20,18 @@ void palindrome (int n){
         Console.WriteLine("Yes");
     }
 }
-
+//=====================================================
 Console.WriteLine("Введите ваше пятизначное число : ");
 int N=int.Parse(Console.ReadLine());
-if(N<0){ N=-N;}
 if(N<100000){ palindrome(N); }
     else{ Console.WriteLine("Вы ввели неверние число!"); }
 
-//if(PalindromeInt(N) == true) { Console.WriteLine("Yes it is");}
+
 // Готово
 
 
 
-
+//if(PalindromeInt(N) == true) { Console.WriteLine("Yes it is");}
 // bool PalindromeInt (int number)
 // {
 //     int rebmun = 0;
