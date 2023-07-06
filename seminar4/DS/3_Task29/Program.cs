@@ -1,47 +1,52 @@
 ﻿// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
- 
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
+// 1 ??? Понял задачу так что заданные числа в примере нужно вести прямо в програме или задать рандомно. 
+// 2 ??? В задинии массив из 8 элементов, но в примерах меньше. поэтому задал дополнительный ввод количества.
 
-// ??? Понял задачу так что заданные числа в примере нужно вести прямо в програме. 
-// Для удобства написал код ввода с консоли.
 
-//=== Удаляем запятые ====
-int[] dell (string a){
-char b = ',';
-int[] array= new int[100];
-int j=0;
-int tt=0,td;
-//string temp=string.Empty;
-for(int i=0; i<a.Length-1; i++){
-      if(a[i] == b) {  
-        tt=0;
-        for(int n=0; n<i; n++){ td=tt*10; tt=td+a[n];
-        System.Console.WriteLine($"td= {td}");
-        System.Console.WriteLine($"a= {a[n]}"); }
-        System.Console.WriteLine($"tt= {tt}");
-                array[j]=tt/10;
-        //System.Console.WriteLine($"tt= {tt}");
-        a=a.Remove(0,i+1);
-        System.Console.WriteLine(a);
-        System.Console.WriteLine($"элемент {j} = {array[j]} ");
-        j++;
-        i=0;
+// Ввод массива через консоль
+int[] ReadArray(int quantity){
+    int[] array =new int[quantity];
+    System.Console.WriteLine($"Введите {quantity} элементов массива:");
+    for(int i=0; i<quantity; i++){
+        array[i]=int.Parse(Console.ReadLine());
     }
-}
-return array;
+    return array;
+
 }
 
+// Задаем массив рандомными числами.
+int[] RandomArray(int quantity){
+    int[] array =new int[quantity];
+    Random rand = new Random();
+
+    for(int i=0; i<quantity; i++){
+        array[i]=rand.Next(100);
+    }
+    return array; 
+}
+
+// Вывод полученогомассива
 void PrintArrya(int[] array){
+    System.Console.Write("[");
     for(int i=0; i<array.Length;i++){
-        System.Console.Write($" {array[i]}");
+        if(i==array.Length-1){System.Console.Write($"{array[i]}]");}
+        else{System.Console.Write($"{array[i]}, ");}
     }
 }
 
-Console.WriteLine("Введите через запятую вашь массив");
+Console.WriteLine("программа принимает количество элементов в массиве N, принивает значение склавиатуры или задает из рандом и выводит их на экран.");
 
-string strA=Console.ReadLine();
-//int[] arrayB =dell(strA);
+System.Console.WriteLine("Введите количество элеменнов в массиве N:");
+int N=int.Parse(Console.ReadLine());
+System.Console.WriteLine("Хотите  ввести элементы массива в ручную ? (press Y)");
+string click=Console.ReadLine();
+if(click == "Y" || click == "y" || click == "Yes" || click == "yes"){ PrintArrya(ReadArray(N));}
+    else{
+        System.Console.WriteLine("Хорошо, мы запоним вашь масив сами!");
+        PrintArrya(RandomArray(N));
+        }
 
-PrintArrya(dell(strA));
-//int[] array=new int[4];
+
+// Готово
