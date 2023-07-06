@@ -39,7 +39,7 @@ void PrintArrya(int[] array){
 Console.WriteLine("программа принимает количество элементов в массиве N, принивает значение склавиатуры или задает из рандом и выводит их на экран.");
 
 System.Console.WriteLine("Введите количество элеменнов в массиве N:");
-int N=int.Parse(Console.ReadLine());
+int N=12
 System.Console.WriteLine("Хотите  ввести элементы массива в ручную ? (press Y)");
 string click=Console.ReadLine();
 if(click == "Y" || click == "y" || click == "Yes" || click == "yes"){ PrintArrya(ReadArray(N));}
