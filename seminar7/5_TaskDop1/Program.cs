@@ -11,7 +11,7 @@
 void SumStolb(double sum, int kol)
 {
     double Sumst=sum/kol;
-    System.Console.Write($" {Math.Round(Sumst, 2)} ");
+    System.Console.Write($" {Math.Round(Sumst,1)} ");
 }
 
 
