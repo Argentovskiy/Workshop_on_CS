@@ -26,21 +26,21 @@ int [,] DoRundomArray(int m, int n)
 void sumPost(int[,] array)
 {
     double sum=0,arithmean=0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(0); j++)
         {
             sum+=array[j,i];
         }
-        arithmean=sum/array.GetLength(1);
+        arithmean=sum/array.GetLength(0);
         System.Console.Write(" "+Math.Round(arithmean,1)+"  ");
         sum=0;
     }
 }
 //=================================================================
-int m=4, n=4;
+int m=4, n=5;
 int[,] DoArray = DoRundomArray(m,n);
 System.Console.WriteLine("Среднее арифметическое каждого столбца:");
 sumPost(DoArray);
-
-// Готово.
+System.Console.WriteLine(DoArray.GetLength(0));
+//исправил ошибку.
