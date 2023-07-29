@@ -6,17 +6,18 @@
 // Заполняем массив случайными неповторяющимеся элементами.
  int[,,] GetDoubleArray(int countRow, int countColumn, int count)
  {
-    int[,,] array = new int[countRow, countColumn, count];
+ int[,,] array = new int[countRow, countColumn, count];
     for (int i = 0; i < countRow; i++)
     {
         for (int j = 0; j < countColumn; j++)
         {
            for (int k = 0; k < count; k++)
-           {
+           { 
             int numb = new Random().Next(9,99);
             if(contains(array,numb)) k--; 
-            else array[i,j,k]=numb;
-
+            else {
+                array[i,j,k]=numb;
+                 }
            }
         }
     }
@@ -28,13 +29,10 @@
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-           for (int k = 0; k < arr.GetLength(3); k++)
+           for (int k = 0; k < arr.GetLength(2); k++)
            {
-             if (arr[i,j,k] == elem) 
-            {
-                return true;
-            }
-            }
+             if (arr[i,j,k] == elem) return true;
+           }
         }
     }
     return false;
@@ -49,8 +47,9 @@
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                Console.Write(array[i,j,k]);
+                  Console.Write(string.Format("{0,8}",array[i,j,k]+$"({i},{j},{k}) "));
             }
+            System.Console.WriteLine();
         }
         System.Console.WriteLine();
     }
@@ -58,15 +57,7 @@
 
 
 // ============================
- int[,,] array = GetDoubleArray(3,3,3);
- System.Console.WriteLine(array.GetLength(2));
+ int[,,] array = GetDoubleArray(2,2,2);
  PrintDoubleArray(array);
- System.Console.WriteLine();
- 
-//  int[,] array2 =GetDoubleArray(2,3);
-//  PrintDoubleArray(array2);
 
-// System.Console.WriteLine("произведение двух матриц.");
-//  int [,] array3 =MatrixMultiplication(array,array2);
-//  PrintDoubleArray(array3);
  // Готово
